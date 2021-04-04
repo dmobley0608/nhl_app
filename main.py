@@ -13,10 +13,12 @@ clock_lbl.pack()
 msg_lbl = Label(root, text='No messages have been sent.')
 msg_lbl.pack()
 adr = AutoDataRetrieval()
+print("Enter email")
+email = input()
 
 
 def start():
-    print("NHL Team Standing Updater")
+    print("NHL Team Standing Updater Is Running")
     while True:
 
         time.sleep(1)
@@ -47,17 +49,17 @@ def send_standing():
 
     teams.clear()
     points.clear()
-    sender = "dmobley1898@gmail.com"
     receivers = ["dmobley0608@gmail.com", "4707682068@txt.att.net"]
 
     msg = MIMEText(body_of_email, 'html')
     msg['Subject'] = "Your Team Standings"
-    msg['From'] = sender
+    msg['From'] = ''
     msg['To'] = ','.join(receivers)
 
     s = smtplib.SMTP_SSL(host='smtp.gmail.com', port=465)
-    s.login(user='dmobley1898@gmail.com', password="lajhqdigmtjjiyhx")
-    s.sendmail(sender, receivers, msg.as_string())
+
+    s.login(user=email, password="lajhqdigmtjjiyhx")
+    s.sendmail(email, receivers, msg.as_string())
     s.quit()
 
 
