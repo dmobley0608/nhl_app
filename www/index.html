@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script type="text/javascript" src="/eel.js"></script>
+	<script>
+	    let teams = []
+
+		function add_teams(text){
+			teams.push(text)
+		}
+		
+		
+		function click(){
+			console.log('clicked')
+			teamDiv = document.getElementById('teams')
+			for(let i =0; i < teams.length; i++){
+				console.log(team[i])
+				teamDiv += teams[i] + "<br>";
+			}
+		}		
+		eel.expose(add_teams);		
+		console.log("Script Runnng");
+	</script>
+	<title>NHL Standings</title>
+</head>
+<body>
+    <h1>NHL Standings</h1>
+	<button onclick="click()">CLICK</button>
+	<div id='teams'></div>
+</body>
+</html>
